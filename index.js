@@ -74,10 +74,30 @@ async function run() {
       res.send(result);
     })
 
+    app.get('/carts', async (req, res) => {
+      const cursor = cartsCollection.find();
+      const result = await cursor.toArray();
+      res.send(result);
+    })
+
+    app.get('/carts/:id', async (req, res) => {
+      const id = req.params.id;
+      const query = {_id: new ObjectId(id)};
+      const result = await cartsCollection.findOne(query);
+      res.send(result);
+    })
+
     app.post('/carts', async (req, res) => {
       const cart = req.body;
       console.log(cart);
       const result = await cartsCollection.insertOne(cart);
+      res.send(result);
+    })
+
+    app.delete('/carts/:id', async (req, res) => {
+      const id = req.params.id;
+      const query = {_id: new ObjectId(id)};
+      const result = await cartsCollection.deleteOne(query);
       res.send(result);
     })
 
