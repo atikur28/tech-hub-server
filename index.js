@@ -8,8 +8,6 @@ const port = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 
-// techelectrohub28
-// lXu1i6rX4YnQkzSN
 
 const uri = "mongodb+srv://techelectrohub28:lXu1i6rX4YnQkzSN@cluster0.uf2mbhw.mongodb.net/?retryWrites=true&w=majority";
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
